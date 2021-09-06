@@ -10,6 +10,7 @@ from esphome.const import (
     LAST_RESET_TYPE_NEVER,
     STATE_CLASS_MEASUREMENT,
     STATE_CLASS_NONE,
+    STATE_CLASS_TOTAL_INCREASING,
     UNIT_AMPERE,
     UNIT_DEGREES,
     UNIT_HERTZ,
@@ -29,7 +30,7 @@ CONFIG_SCHEMA = cv.Schema(
             ICON_EMPTY,
             3,
             DEVICE_CLASS_ENERGY,
-            STATE_CLASS_MEASUREMENT,
+            STATE_CLASS_TOTAL_INCREASING,
             LAST_RESET_TYPE_NEVER,
         ),
         cv.Optional("energy_delivered_tariff1"): sensor.sensor_schema(
@@ -37,7 +38,7 @@ CONFIG_SCHEMA = cv.Schema(
             ICON_EMPTY,
             3,
             DEVICE_CLASS_ENERGY,
-            STATE_CLASS_MEASUREMENT,
+            STATE_CLASS_TOTAL_INCREASING,
             LAST_RESET_TYPE_NEVER
         ),
         cv.Optional("energy_delivered_tariff2"): sensor.sensor_schema(
@@ -45,7 +46,7 @@ CONFIG_SCHEMA = cv.Schema(
             ICON_EMPTY,
             3,
             DEVICE_CLASS_ENERGY,
-            STATE_CLASS_MEASUREMENT,
+            STATE_CLASS_TOTAL_INCREASING,
             LAST_RESET_TYPE_NEVER,
         ),
         cv.Optional("energy_returned"): sensor.sensor_schema(
@@ -53,7 +54,7 @@ CONFIG_SCHEMA = cv.Schema(
             ICON_EMPTY,
             3,
             DEVICE_CLASS_ENERGY,
-            STATE_CLASS_MEASUREMENT,
+            STATE_CLASS_TOTAL_INCREASING,
             LAST_RESET_TYPE_NEVER,
         ),
         cv.Optional("energy_returned_tariff1"): sensor.sensor_schema(
@@ -61,7 +62,7 @@ CONFIG_SCHEMA = cv.Schema(
             ICON_EMPTY,
             3,
             DEVICE_CLASS_ENERGY,
-            STATE_CLASS_MEASUREMENT,
+            STATE_CLASS_TOTAL_INCREASING,
             LAST_RESET_TYPE_NEVER,
         ),
         cv.Optional("energy_returned_tariff2"): sensor.sensor_schema(
@@ -69,7 +70,7 @@ CONFIG_SCHEMA = cv.Schema(
             ICON_EMPTY,
             3,
             DEVICE_CLASS_ENERGY,
-            STATE_CLASS_MEASUREMENT,
+            STATE_CLASS_TOTAL_INCREASING,
             LAST_RESET_TYPE_NEVER,
         ),
         cv.Optional("power_delivered"): sensor.sensor_schema(
