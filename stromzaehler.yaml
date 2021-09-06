@@ -1,0 +1,93 @@
+esphome:
+  name: stromzaehler
+  platform: ESP32
+  board: nodemcu-32s
+
+# Enable logging
+logger:
+  level: VERBOSE
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+wifi:
+  ssid: wifi_ssid
+  password: wifi_password
+
+external_components:
+  - source:
+      type: local
+      path: my_components
+
+uart:
+  baud_rate: 9600
+  rx_pin: 16
+
+sml:
+  id: sml_instance
+
+sensor:
+  - platform: sml
+    energy_delivered:
+      name: "Wirkenergie"
+      accuracy_decimals: 2
+      filters:
+        - multiply: 0.0001
+    energy_delivered_tariff1:
+      name: "Wirkenergie Tarif 1"
+      accuracy_decimals: 2
+      filters:
+        - multiply: 0.0001
+    energy_delivered_tariff2:
+      name: "Wirkenergie Tarif 2"
+      accuracy_decimals: 2
+      filters:
+        - multiply: 0.0001
+    energy_returned:
+      name: "Wirkenergie Einspeißung"
+      accuracy_decimals: 2
+      filters:
+        - multiply: 0.0001
+    energy_returned_tariff1:
+      name: "Wirkenergie Tarif 1 Einspeißung"
+      accuracy_decimals: 2
+      filters:
+        - multiply: 0.0001
+    energy_returned_tariff2:
+      name: "Wirkenergie Tarif 2 Einspeißung"
+      accuracy_decimals: 2
+      filters:
+        - multiply: 0.0001
+    power_delivered:
+      name: "Wirkleistung"
+    power_delivered_2:
+      name: "Wirkleistung 2"
+    voltage_l1:
+      name: "Spannung L1"
+    voltage_l2:
+      name: "Spannung L2"
+    voltage_l3:
+      name: "Spannung L3"
+    current_l1:
+      name: "Current L1"
+    current_l2:
+      name: "Current L2"
+    current_l3:
+      name: "Current L3"
+    phase_angle_u_l2_u_l1:
+      name: "Phasenwinkel U-L2 zu U-L1"
+    phase_angle_u_l3_u_l1:
+      name: "Phasenwinkel U-L3 zu U-L1"
+    phase_angle_i_l1_u_l1:
+      name: "Phasenwinkel I-L1 zu U-L1"
+    phase_angle_i_l2_u_l2:
+      name: "Phasenwinkel I-L3 zu U-L3"
+    phase_angle_i_l3_u_l3:
+      name: "Phasenwinkel I-L3 zu U-L3"
+    frequency:
+      name: "Frequenz"
+      accuracy_decimals: 1
+      filters:
+        - multiply: 0.1
