@@ -13,8 +13,8 @@ api:
 ota:
 
 wifi:
-  ssid: wifi_ssid
-  password: wifi_password
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
 external_components:
   - source:
@@ -66,16 +66,31 @@ sensor:
       name: "Wirkleistung 2"
     voltage_l1:
       name: "Spannung L1"
+      filters:
+        - multiply: 0.1
     voltage_l2:
       name: "Spannung L2"
+      filters:
+        - multiply: 0.1
     voltage_l3:
       name: "Spannung L3"
+      filters:
+        - multiply: 0.1
     current_l1:
       name: "Current L1"
+      accuracy_decimals: 3
+      filters:
+        - multiply: 0.01
     current_l2:
       name: "Current L2"
+      accuracy_decimals: 3
+      filters:
+        - multiply: 0.01
     current_l3:
       name: "Current L3"
+      accuracy_decimals: 3
+      filters:
+        - multiply: 0.01
     phase_angle_u_l2_u_l1:
       name: "Phasenwinkel U-L2 zu U-L1"
     phase_angle_u_l3_u_l1:
@@ -88,6 +103,6 @@ sensor:
       name: "Phasenwinkel I-L3 zu U-L3"
     frequency:
       name: "Frequenz"
-      accuracy_decimals: 1
+      accuracy_decimals: 3
       filters:
         - multiply: 0.1
