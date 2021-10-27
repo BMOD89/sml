@@ -7,7 +7,6 @@ from esphome.const import (
     DEVICE_CLASS_POWER,
     DEVICE_CLASS_VOLTAGE,
     ICON_EMPTY,
-    LAST_RESET_TYPE_NEVER,
     STATE_CLASS_MEASUREMENT,
     STATE_CLASS_NONE,
     STATE_CLASS_TOTAL_INCREASING,
@@ -31,7 +30,6 @@ CONFIG_SCHEMA = cv.Schema(
             3,
             DEVICE_CLASS_ENERGY,
             STATE_CLASS_TOTAL_INCREASING,
-            LAST_RESET_TYPE_NEVER,
         ),
         cv.Optional("energy_delivered_tariff1"): sensor.sensor_schema(
             "kWh",
@@ -39,7 +37,6 @@ CONFIG_SCHEMA = cv.Schema(
             3,
             DEVICE_CLASS_ENERGY,
             STATE_CLASS_TOTAL_INCREASING,
-            LAST_RESET_TYPE_NEVER
         ),
         cv.Optional("energy_delivered_tariff2"): sensor.sensor_schema(
             "kWh",
@@ -47,7 +44,6 @@ CONFIG_SCHEMA = cv.Schema(
             3,
             DEVICE_CLASS_ENERGY,
             STATE_CLASS_TOTAL_INCREASING,
-            LAST_RESET_TYPE_NEVER,
         ),
         cv.Optional("energy_returned"): sensor.sensor_schema(
             "kWh",
@@ -55,7 +51,6 @@ CONFIG_SCHEMA = cv.Schema(
             3,
             DEVICE_CLASS_ENERGY,
             STATE_CLASS_TOTAL_INCREASING,
-            LAST_RESET_TYPE_NEVER,
         ),
         cv.Optional("energy_returned_tariff1"): sensor.sensor_schema(
             "kWh",
@@ -63,7 +58,6 @@ CONFIG_SCHEMA = cv.Schema(
             3,
             DEVICE_CLASS_ENERGY,
             STATE_CLASS_TOTAL_INCREASING,
-            LAST_RESET_TYPE_NEVER,
         ),
         cv.Optional("energy_returned_tariff2"): sensor.sensor_schema(
             "kWh",
@@ -71,7 +65,6 @@ CONFIG_SCHEMA = cv.Schema(
             3,
             DEVICE_CLASS_ENERGY,
             STATE_CLASS_TOTAL_INCREASING,
-            LAST_RESET_TYPE_NEVER,
         ),
         cv.Optional("power_delivered"): sensor.sensor_schema(
             UNIT_WATT, ICON_EMPTY, 3, DEVICE_CLASS_POWER, STATE_CLASS_MEASUREMENT
