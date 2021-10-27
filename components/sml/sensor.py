@@ -114,7 +114,6 @@ CONFIG_SCHEMA = cv.Schema(
 
 def to_code(config):
     hub = yield cg.get_variable(config[CONF_SML_ID])
-
     sensors = []
     for key, conf in config.items():
         if not isinstance(conf, dict):

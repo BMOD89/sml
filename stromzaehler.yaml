@@ -26,7 +26,7 @@ uart:
   rx_pin: 16
 
 sml:
-  id: sml_instance
+  - id: sml_instance
 
 sensor:
   - platform: sml

@@ -15,17 +15,19 @@ sml_ns = cg.esphome_ns.namespace("sml_")
 SML = sml_ns.class_("Sml", cg.Component, uart.UARTDevice)
 
 
-CONFIG_SCHEMA = cv.Schema(
-    {
-        cv.GenerateID(): cv.declare_id(SML),
-    }
-).extend(uart.UART_DEVICE_SCHEMA)
-
+CONFIG_SCHEMA = cv.ensure_list(
+        cv.Schema(
+            {
+                cv.GenerateID(): cv.declare_id(SML),
+            }
+        ).extend(uart.UART_DEVICE_SCHEMA),
+    )
 
 def to_code(config):
-    uart_component = yield cg.get_variable(config[CONF_UART_ID])
-    var = cg.new_Pvariable(config[CONF_ID], uart_component)
-    yield cg.register_component(var, config)
-
+    for cfg in config:
+        uart_component = yield cg.get_variable(cfg[CONF_UART_ID])
+        var = cg.new_Pvariable(cfg[CONF_ID], uart_component)
+        yield cg.register_component(var, cfg)
+    
     # https://github.com/volkszaehler/libsml/blob/master/library.json
     cg.add_library("libsml", None, "https://github.com/volkszaehler/libsml")
